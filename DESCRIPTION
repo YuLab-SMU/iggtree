@@ -8,7 +8,8 @@ Depends:
   R (>= 3.5.0),
   ggtree
 Imports:
-  plotly
+  plotly,
+  ggiraph
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
