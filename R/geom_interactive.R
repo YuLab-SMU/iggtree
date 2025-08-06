@@ -76,6 +76,8 @@ GeomHilightEncircle <- getFromNamespace("GeomHilightEncircle", "ggtree")
 geom_curvelink <- getFromNamespace("geom_curvelink", "ggtree")
 geom_hilight_rect2 <- getFromNamespace("geom_hilight_rect2", "ggtree")
 geom_hilight_encircle2 <- getFromNamespace("geom_hilight_encircle2", "ggtree")
+generate_curvature <- getFromNamespace("generate_curvature", "ggtree")
+generate_curvature2 <- getFromNamespace("generate_curvature2", "ggtree")
 
 
 GeomImage <- getFromNamespace("GeomImage", "ggimage")
