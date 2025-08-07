@@ -1,62 +1,99 @@
+#' @title Create interactive line segments of ggtree  
+#' @description
+#' The geometry is based on `geom_segment2()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_segment2()` of `ggtree`
 #' @export
 geom_segment2_interactive <- function(...){
   rlang::check_installed('ggiraph', "for `geom_segment2_interactive()`.")
   layer_interactive(geom_segment2, interactive_geom = GeomInteractiveSegmentGGtree, ...)
 }
 
-
+#' @title Create interactive text of ggtree
+#' @description
+#' The geometry is based on `geom_text2()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_text2()` of `ggtree`
 #' @export
 geom_text2_interactive <- function(...){
   layer_interactive(geom_text2, interactive_geom = GeomInteractiveTextGGtree, ...)
 }
 
+
+#' @title Create interactive label of ggtree
+#' @description
+#' The geometry is based on `geom_label2()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_label2()` of `ggtree`
 #' @export
 geom_label2_interactive <- function(...){
   layer_interactive(geom_label2, interactive_geom = GeomInteractiveLabelGGtree, ...)
 }
 
+#' @title Create interactive point of ggtree
+#' @description
+#' The geometry is based on `geom_point2()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_point2()` of `ggtree`
 #' @export 
 geom_point2_interactive <- function(...){
   layer_interactive(geom_point2, interactive_geom = GeomInteractivePointGGtree, ...)
 }
 
-#' @export
+
+#' @keywords internal
 geom_hilight_rect2_interactive <- function(...){
   layer_interactive(geom_hilight_rect2, interactive_geom = GeomInteractiveHilightRect, ...)
 }
 
-#' @export
+#' @keywords internal
 geom_hilight_encircle2_interactive <- function(...){
   layer_interactive(geom_hilight_encircle2, interactive_geom = GeomInteractiveHilightEncircle, ...)
 }
 
-#' @export
+
+
+#' @keywords internal
 geom_curvelink_interactive <- function(...){
   layer_interactive(geom_curvelink, interactive_geom = GeomInteractiveCurvelink, ...)
 }
 
+#' @title Create interactive shadow text
+#' @description
+#' The geometry is based on `geom_shadowtext()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_shadowtext()` of `shadowtext`
 #' @export
 geom_shadowtext_interactive <- function(...){
   rlang::check_installed(c('ggiraph', 'shadowtext'), "for `geom_shadowtext_interactive()`.")
-  layer_interactive(geom_shadowtext, interactive_geom = GeomInteractiveShadowtext,...)
+  layer_interactive(shadowtext::geom_shadowtext, interactive_geom = GeomInteractiveShadowtext,...)
 }
 
 
-#' @importFrom ggimage geom_image
+#' @title Create interactive image of ggimage 
+#' @description
+#' The geometry is based on `geom_image()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_image()` of `ggimage`
 #' @export
 geom_image_interactive <- function(...){
   rlang::check_installed(c('ggiraph', 'ggimage'), "for `geom_image_interactive()`.")
-  layer_interactive(geom_image, interactive_geom = GeomInteractiveImage,...)
+  layer_interactive(ggimage::geom_image, interactive_geom = GeomInteractiveImage,...)
 }
 
-#' @importFrom ggimage geom_phylopic
+
+#' @title Create interactive phylopic of ggimage
+#' @description
+#' The geometry is based on `geom_phylopic()`.
+#' See the documentation for those functions for more details.
+#' @param ... see also the parameters of `geom_phylopic()` of `ggimage`
 #' @export
 geom_phylopic_interactive <- function(...){
   rlang::check_installed(c('ggiraph', 'ggimage'), "for `geom_phylopic_interactive()`.")
-  layer_interactive(geom_phylopic, interactive_geom = GeomInteractiveImage,...)
+  layer_interactive(ggimage::geom_phylopic, interactive_geom = GeomInteractiveImage,...)
 }
 
-
+#' @importFrom ggplot2 aes_
 # the internal functions of ggiraph
 layer_interactive <- getFromNamespace("layer_interactive", "ggiraph")
 add_default_interactive_aes <- getFromNamespace("add_default_interactive_aes", "ggiraph")
@@ -73,14 +110,24 @@ GeomCurvelink <- getFromNamespace("GeomCurvelink", "ggtree")
 GeomHilightRect <- getFromNamespace("GeomHilightRect", "ggtree")
 GeomHilightEncircle <- getFromNamespace("GeomHilightEncircle", "ggtree")
 
+
+geom_segment2 <- getFromNamespace("geom_segment2", "ggtree")
+geom_text2 <- getFromNamespace("geom_text2", "ggtree")
+geom_label2 <- getFromNamespace("geom_label2", "ggtree")
+geom_point2 <- getFromNamespace("geom_point2", "ggtree")
 geom_curvelink <- getFromNamespace("geom_curvelink", "ggtree")
 geom_hilight_rect2 <- getFromNamespace("geom_hilight_rect2", "ggtree")
 geom_hilight_encircle2 <- getFromNamespace("geom_hilight_encircle2", "ggtree")
+
+
 generate_curvature <- getFromNamespace("generate_curvature", "ggtree")
 generate_curvature2 <- getFromNamespace("generate_curvature2", "ggtree")
-
+build_align_data <- getFromNamespace("build_align_data", "ggtree")
+rect_to_poly <- getFromNamespace("rect_to_poly", "ggtree")
 
 GeomImage <- getFromNamespace("GeomImage", "ggimage")
+
+GeomShadowtext <- getFromNamespace("GeomShadowtext", "shadowtext")
 
 #' @title ggproto classes for ggiraph
 #' @description
@@ -166,7 +213,6 @@ GeomInteractiveLabelGGtree <- ggproto(
 #' ggproto classes for ggiraph
 #' @format NULL
 #' @usage NULL
-#' @importFrom shadowtext GeomShadowtext
 #' @importFrom ggplot2 ggproto
 #' @export
 GeomInteractiveShadowtext <- ggproto(
@@ -282,7 +328,9 @@ GeomInteractiveCurvelink <- ggproto(
 #' @format NULL
 #' @usage NULL
 #' @importFrom ggplot2 ggproto
-#' @importFrom grid gTree gpar curveGrob
+#' @importFrom grid gTree gpar curveGrob grobTree
+#' @importFrom cli cli_alert_warning
+#' @importFrom ggiraph GeomInteractivePolygon
 #' @export
 GeomInteractiveHilightRect <- ggproto(
   "GeomInteractiveHilightRect",
@@ -290,10 +338,54 @@ GeomInteractiveHilightRect <- ggproto(
   default_aes = add_default_interactive_aes(GeomHilightRect),
   parameters = interactive_geom_parameters,
   draw_key = interactive_geom_draw_key,
-  draw_panel = function(data, panel_params, coord, ..., .ipar = IPAR_NAMES){
-     gr <- GeomHilightRect$draw_panel(data, panel_params, coord, ...)
-     coords <- coord$transform(data, panel_params)
-     gr <- add_interactive_attrs(gr, coords, ipar=.ipar)
+  draw_panel = function(data, panel_params, coord, align='none', 
+                        gradient = FALSE, roundrect = FALSE, ..., 
+                        .ipar = IPAR_NAMES){
+     if (coord$is_linear()){
+        gr <- GeomHilightRect$draw_panel(data, panel_params, coord, ...)
+        coords <- coord$transform(data, panel_params)
+        gr <- add_interactive_attrs(gr, coords, ipar=.ipar)
+     }else{
+        data$xmax <- data$xmax + data$extend
+        if (!any(is.null(data$extendto)) && !any(is.na(data$extendto))){
+            # check whether the x of tree is reversed.
+            flag1 <- data$xmin < data$xmax
+            # check whether extendto is more than xmax
+            flag2 <- data$extendto < data$xmax
+            flag <- flag1 == flag2
+            if (all(flag1) && any(flag)){
+                cli_alert_warning(c("{.code extendto} ", paste0(data$extendto[flag], collapse="; "),
+                             ifelse(length(data$extendto[flag])>1, " are", " is")," too small for node: ",
+                             paste0(data$clade_root_node[flag], collapse="; "),", keep the original xmax value(s): ",
+                             paste0(data$xmax[flag], collapse="; "), "."), wrap = TRUE)
+                data$xmax[!flag] <- data$extendto[!flag]
+            }else if(!all(flag1) && any(flag)){
+                cli_alert_warning(c("{.code extendto} ", paste0(data$extendto[flag], collapse="; "),
+                             ifelse(length(data$extendto[flag])>1, " are", " is"), " too big for node: ",
+                             paste0(data$clade_root_node[flag], collapse="; "), ", keep the original xmax value(s): ",
+                             paste0(data$xmax[flag], collapse="; "), "."), wrap = TRUE)
+                data$xmax[!flag] <- data$extendto[!flag]
+            }else{
+                data$xmax <- data$extendto
+            }
+        }
+        data <- build_align_data(data=data, align=align)
+        if (gradient){
+            cli_alert_warning("The gradient color hight light layer only presents in
+                              rectangular, ellipse, roundrect layouts.", wrap = TRUE)
+        }
+        if (roundrect){
+            cli_alert_warning("The round rectangular hight light layer only presents in
+                              rectangular, ellipse, roundrect layouts.", wrap =TRUE)
+        }
+        aesthetics <- setdiff(colnames(data), c("xmin", "xmax", "ymin", "ymax", "clade_root_node")) 
+        gr <- lapply(split(data, seq_len(nrow(data))), function(row) {
+                      poly <- rect_to_poly(row$xmin, row$xmax, row$ymin, row$ymax)
+                      aes <- row[rep(1,5), aesthetics]
+                      GeomInteractivePolygon$draw_panel(vctrs::vec_cbind(poly, aes), panel_params, coord, ..., .ipar=.ipar)
+                      })
+        gr <- ggname("geom_hilight_rect2_interactive", do.call("grobTree", gr)) 
+     }
      gr
   } 
 )

@@ -1,33 +1,21 @@
----
-output: 
-  md_document:
-    variant: gfm
-html_preview: false
----
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# iggtree: Provide basic components for the interactive version of ggtree 
-
-```{r, echo=FALSE, results="hide", message=FALSE}
-library(badger)
-```
+# iggtree: Provide basic components for the interactive version of ggtree
 
 ## :newspaper: Description
 
-```{r, comment="", echo=FALSE, results='asis'}
-cat(packageDescription('iggtree')$Description)
-```
+What the package does (one paragraph).
 
-## :writing_hand: Author
+## :writing\_hand: Author
 
-[Shuangbin Xu](https://github.com/xiangpin) and [Guangchuang Yu](https://guangchuangyu.github.io)
+[Shuangbin Xu](https://github.com/xiangpin) and [Guangchuang
+Yu](https://guangchuangyu.github.io)
 
 School of Basic Medical Sciences, Southern Medical University
 
-## :arrow_double_down: Installation
+## :arrow\_double\_down: Installation
 
-```r
+``` r
 #It can be installed via GitHub.
 if (!requireNamespace("remotes", quietly=TRUE))
     install.packages("remotes")
@@ -36,7 +24,7 @@ remotes::install_github("YuLab-SMU/iggtree")
 
 ## :newspaper: Usage
 
-```{r eval=FALSE}
+``` r
 library(ggplot2)
 library(ggiraph)
 library(iggtree)
@@ -70,7 +58,8 @@ girafe(ggobj = p)
 
 ![](./inst/extdata/example1.png)
 
-## :sparkling_heart: Contributing
+## :sparkling\_heart: Contributing
 
-We welcome any contributions! By participating in this project you agree to abide
-by the terms outlined in the [Contributor Code of Conduct](CONDUCT.md).
+We welcome any contributions\! By participating in this project you
+agree to abide by the terms outlined in the [Contributor Code of
+Conduct](CONDUCT.md).

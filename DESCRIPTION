@@ -1,15 +1,29 @@
 Package: iggtree
-Title: What the Package Does (One Line, Title Case)
+Title: Provide basic components for the interactive version of ggtree
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Shuangbin", "Xu",  email="xshuangbin@163.com", role = c("aut", "cre"), 
+           comment=c(ORCID="0000-0003-3513-5362")),
+    person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = "aut",
+            comment = c(ORCID = "0000-0002-6485-8781"))
+    )
+Description: 
+  Provides functions to render 'ggtree' objects as interactive graphics
+  using the 'ggiraph' package. Adds support for interactive tooltips,
+  data point selection, and click events to phylogenetic trees.
 Depends:
-  R (>= 3.5.0),
-  ggtree
+  R (>= 4.1.0)
 Imports:
   plotly,
-  ggiraph
+  ggplot2,
+  ggiraph,
+  cli,
+  rlang
+Suggests:
+  ggtree,
+  shadowtext,
+  ggimage,
+  purrr
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
