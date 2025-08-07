@@ -4,7 +4,9 @@
 
 ## :newspaper: Description
 
-What the package does (one paragraph).
+Provides functions to render ‘ggtree’ objects as interactive graphics
+using the ‘ggiraph’ package. Adds support for interactive tooltips, data
+point selection, and click events to phylogenetic trees.
 
 ## :writing\_hand: Author
 
