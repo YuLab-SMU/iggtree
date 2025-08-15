@@ -24,7 +24,7 @@ if (!requireNamespace("remotes", quietly=TRUE))
 remotes::install_github("YuLab-SMU/iggtree")
 ```
 
-## :newspaper: Usage
+## :beginner: Usage
 
 ``` r
 library(ggplot2)

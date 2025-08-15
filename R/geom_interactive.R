@@ -342,7 +342,7 @@ GeomInteractiveHilightRect <- ggproto(
                         gradient = FALSE, roundrect = FALSE, ..., 
                         .ipar = IPAR_NAMES){
      if (coord$is_linear()){
-        gr <- GeomHilightRect$draw_panel(data, panel_params, coord, ...)
+        gr <- GeomHilightRect$draw_panel(data, panel_params, coord, gradient = gradient, roundrect = roundrect, align = align, ...)
         coords <- coord$transform(data, panel_params)
         gr <- add_interactive_attrs(gr, coords, ipar=.ipar)
      }else{
