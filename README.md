@@ -2,6 +2,8 @@
 
 # iggtree: Provide basic components for the interactive version of ggtree
 
+**incorporated in [ggtree](https://github.com/YuLab-SMU/ggtree)**
+
 ## :newspaper: Description
 
 Provides functions to render ‘ggtree’ objects as interactive graphics
